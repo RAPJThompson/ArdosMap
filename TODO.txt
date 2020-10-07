@@ -1,0 +1,2 @@
+-Add popup with information for each item
+-Add button to rotate through 4 colors on click

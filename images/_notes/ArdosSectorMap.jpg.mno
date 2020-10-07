@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="dw_new_image_map" value="&lt;MAP name=&quot;CommunicationsArray&quot;&gt;&#xD;          &lt;AREA SHAPE=&quot;poly&quot; COORDS=&quot;1417,555,1428,539,1435,543,1427,556,1441,575,1465,595,1463,608,1437,601,1456,622,1447,630,1420,611,1417,632,1403,632,1399,621,1375,612,1342,627,1331,620,1357,604,1320,606,1314,591,1355,588,1363,567,1376,559,1391,554,1407,552&quot; HREF=&quot;#&quot; ALT=&quot;SomeText&quot;&gt;&#xD;          &lt;AREA SHAPE=&quot;poly&quot; COORDS=&quot;118,1596,103,1667,121,1777,170,1788,222,1751,224,1685,181,1624&quot; HREF=&quot;#&quot; ALT=&quot;More Text&quot;&gt;&#xD;        &lt;/MAP&gt;" />
+</info>
