@@ -7,27 +7,24 @@
 <!-- Add jQuery library -->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 
-<!-- Add maphilight plugin -->
-<script type="text/javascript" src="./Resources/jquery.maphilight.min.js"></script>
+<!-- Add imagemapster plugin -->
+<script type="text/javascript" src="scripts/jquery.imagemapster.js"></script>
 
-<!-- Activate maphilight plugin -->
-<script type="text/javascript">$(function() {
-        $('.map').maphilight();
-    });
-</script>
+$('#myimage').mapster({
+	fillColor: 'ff0000',
+});
+
 <title>Ardos Sector Map</title>
 <link href="css/singlePageTemplate.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container"> 
-		<img src="./images/ArdosSectorMap.jpg" alt="Sector Map" usemap="#InfoLayer" class="map"/>
+		<img id="myimage" src="./images/ArdosSectorMap.jpg" alt="Sector Map" usemap="#InfoLayer" class="map"/>
 			<map name="InfoLayer">
 				<area shape="poly"
 					coords="1417,555,1428,539,1435,543,1427,556,1441,575,1465,595,1463,608,1437,601,1456,622,1447,630,1420,
 					611,1417,632,1403,632,1399,621,1375,612,1342,627,1331,620,1357,604,1320,606,1314,591,1355,588,1363,567,
 					1376,559,1391,554,1407,552" href="#OrbitalStation" alt="Some Text">
-				<area shape="poly" 
-					coords="118,1596,103,1667,121,1777,170,1788,222,1751,224,1685,181,1624" href="#CommsArray" alt="More Text">
 				<area shape="poly" 
 					coords="1037,851,1031,860,1024,876,1032,886,1029,897,1036,903,1033,916,1028,919,1029,928,1040,934,1033,
 					940,1038,952,1038,959,1048,951,1057,944,1059,930,1065,940,1077,950,1085,952,1088,945,1089,934,1103,934,
@@ -70,7 +67,8 @@
 					coords="553,1295,568,1292,583,1264,598,1248,611,1259,617,1241,613,1230,635,1216,655,1219,668,1201,662,1187,
 					652,1178,659,1154,628,1156,646,1126,609,1132,582,1149,585,1173,565,1194,552,1191,549,1211,549,1247,545,1274" 
 					href="#GasFields" alt="Lavatina Gas Fields">
-			  </map>
+              <area shape="poly" coords="132,1625,128,1636,143,1689,140,1698,143,1706,167,1755,172,1715,178,1706,177,1697,169,1688,166,1680" href="#">
+	  </map>
 </div >
 </body>
 </html>
