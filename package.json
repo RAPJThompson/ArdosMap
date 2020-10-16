@@ -10,8 +10,10 @@
   "dependencies": {
     "@vue/cli": "^4.5.7",
     "core-js": "^3.6.5",
+    "firebase": "^7.24.0",
     "leaflet": "^1.7.1",
     "vue": "^2.6.11",
+    "vue-resource": "^1.5.1",
     "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
@@ -21,10 +23,13 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "html-webpack-inline-source-plugin": "0.0.10",
+    "friendly-error": "^1.1.0",
+    "html-webpack-inline-source-plugin": "^1.0.0-beta.2",
     "html-webpack-plugin": "^4.5.0",
+    "inline-chunk-html-plugin": "^1.1.1",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.3",
+    "url-loader": "^4.1.1",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

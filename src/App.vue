@@ -63,9 +63,16 @@
         <div v-if="displayZone.planetControl" class="planetary-control"> <span class="bold"> PLANETARY CONTROL BENEFIT: </span><span> {{displayZone.planetControl}} </span> </div>
       </div>
     </div>
-    <div style="display: none"> 
+    <div style="display: hide"> 
       <input type="checkbox" id="editMode_checkbox" v-model="editMode">
       <label for="editMode_checkbox">Edit Mode</label>
+      <button class="primary btn-primary" @click="save">Save</button>
+      <br>
+      <input type="text" id="email_text" v-model="email">
+      <label for="email_text">Email</label>
+      <input type="password" id="email_text" v-model="password">
+      <label for="email_text">Email</label>
+      <button class="primary btn-primary" @click="login">Login</button>
     </div> 
 	</div>
 </template>
@@ -74,22 +81,31 @@
   import coords from './appCoords';
   import sectorData from './sectorData.js';
   import { LMap, LTileLayer, LMarker, LPolygon } from 'vue2-leaflet';
+  import * as firebase from './firebase';
 	/* eslint-disable vue/no-unused-components */
   export default {
     name: 'ArgosMap',
     components: { 
       LMap, LTileLayer, LMarker, LPolygon
     },
+    created() {
+      this.$http.get('zones.json')
+        .then(response => {
+          if(response.body) {
+            this.control = response.body;
+          }
+      })
+    },
     data() {
       return {
         sectorData: {...sectorData},
         coords: {...coords},
         control: {
-          "orbitalStation": 1,
-          "commsRelay": 2,
-          "ancientRuins": 1,
+          "orbitalStation": 0,
+          "commsRelay": 0,
+          "ancientRuins": 0,
           "hiveCity": 0,
-          "commandComplex": 3,
+          "commandComplex": 0,
           "wasteland": 0,
           "shippingYards": 0,
           "solarPlant": 0,
@@ -106,7 +122,11 @@
           4: "green",
         },
         editMode: null,
-        displayZone: null
+        displayZone: null,
+        email: '',
+        password: '',
+        user: {},
+        userToken: ''
       };
     },
     methods: {
@@ -121,7 +141,25 @@
       },
       zoneColour(zone) {
         return this.colours[this.control[zone]]
+      },
+      save() {
+        this.$http
+          .put(`zones.json?auth=${this.userToken}`, {...this.control}, {auth: {uid: this.user.uid}})
+            .catch(() => {});
+      },
+      login() {
+        firebase.auth.signInWithEmailAndPassword(this.email, this.password)
+          .then(response => {
+            this.user = response.user
+            response.user.getIdToken(true)
+              .then(idToken => {
+                this.userToken = idToken;
+              }).catch(() => {});
+            alert('Logged in');
+          })
+          .catch(() => {})
       }
+
     }
   }
 </script>
